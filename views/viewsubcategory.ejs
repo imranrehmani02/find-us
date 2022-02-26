@@ -1,0 +1,69 @@
+<% include header %>
+
+<% include gallery %>
+
+
+<!-- main section starts -->
+<div id="tooplate_main">
+    
+<!-- content section starts -->
+<div id="tooplate_content">
+    
+<h2>Sub Category list  >>  <%= catnm %></h2>
+<style>
+#main
+{
+    height:auto;
+    width:600px;
+}
+.main_part
+{
+    height:150px;
+    width:200px;
+    float:left;
+}    
+</style>
+<div id="main">
+<% for(let row of sclist) { %>    
+<a href="">
+    <div class="main_part">
+        <center>
+        <img src="uploads/subcategoryicons/<%= row.subcaticonnm %>" height="100" width="150" />
+        <br><br>
+        <b><%= row.subcatnm %></b>    
+        </center>
+    </div>
+</a>
+<% } %>
+</div>
+
+</div>
+<!-- content section ends -->
+
+    <!-- sidebar section starts -->
+    
+        <div id="tooplate_sidebar">
+        
+            <h2>Social Links</h2>
+            
+            <ul class="tooplate_list">
+            <li><a href="#">@Facebook</a></li>
+            <li><a href="#">@Twitter</a></li>
+            <li><a href="#">@Gmail</a></li>
+            <li><a href="#">@Google+</a></li>
+            
+            <div class="cleaner_h60"></div>
+            
+            
+        
+        
+        </div>
+        <!-- sidebar section ends -->
+
+		<div class="cleaner"></div>
+</div>
+<div class="cleaner"></div>  
+
+<!-- main section ends -->
+
+<% include footer %>

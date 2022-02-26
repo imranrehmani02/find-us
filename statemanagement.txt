@@ -1,0 +1,36 @@
+State management : It is a mechanism to deploy application level security and user tracking in application. This can be implemented in application by two ways
+
+-> session management : It is a server side mechanism to implement state management , session is a storage on server side used to store details of users on server side to apply security and tracking
+
+install module : express-session 
+
+app.js
+
+var session=require('express-session')
+app.use(session({'secret':'my pet name is shanky'}))
+
+
+-> cookie management : It is client side mechanism to implement state, management , as cookie is a client side storage used to store details on client end (web browser).
+
+As data is on client end may leads to carry out security conerns , hence cookies is used for user tracking not to implement security
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

@@ -1,0 +1,94 @@
+<% include userheader %>
+
+
+<!-- main section starts -->
+<div id="tooplate_main">
+
+<center>
+<h1>Manage Locations</h1>
+
+<table cellspacing="15">
+    <tr>
+    <th>LocationId</th>
+    <th>Title</th>
+    <th>Category</th>
+    <th>Images</th>
+    <th>City</th>
+    <th>Locality</th>
+    <th>Status</th>
+    <th>Action</th>
+    </tr>    
+    
+    <% for(let row of locationDetails) { %>
+    <tr><td colspan="10"><hr></td></tr>
+    <tr>
+    <td><%= row._id %></td>
+    <td><%= row.title %></td>
+    <td><%= row.subcategory %></td>
+    <td>
+        <img src="../uploads/locationimages/<%= row.file1 %>" height="50" width="70" />
+        <img src="../uploads/locationimages/<%= row.file2 %>" height="50" width="70" />
+        <img src="../uploads/locationimages/<%= row.file3 %>" height="50" width="70" />
+        <img src="../uploads/locationimages/<%= row.file4 %>" height="50" width="70" />
+        
+    </td>
+    <td><%= row.city %></td>
+    <td><%= row.locality %></td>
+    <td>
+    <% if(row.status) { %>
+    <font color="green">Verified</font>
+    <% } else { %>
+    <font color="red">Not Verified</font>
+    <% } %>    
+    </td>
+
+    <td>
+
+    <% if(row.status) { %>
+        ....
+    <% } else { %>
+
+  <!-- PayPal payment form for displaying the buy button -->
+  <form action="<%= PAYPAL_URL %>" method="post">
+    <!-- Identify your business so that you can collect the payments. -->
+    <input type="hidden" name="business" value="<%= PAYPAL_ID %>">
+    
+    <!-- Specify a Buy Now button. -->
+    <input type="hidden" name="cmd" value="_xclick">
+    
+    <!-- Specify details about the item that buyers will purchase. -->
+    <input type="hidden" name="item_name" value="Verify Location Charges">
+    <input type="hidden" name="item_number" value="<%= row._id %>">
+    <input type="hidden" name="amount" value="200">
+    <input type="hidden" name="currency_code" value="USD">
+    
+    <!-- Specify URLs -->
+    <input type="hidden" name="return" value="http://localhost:3000/user/payment?locationid=<%= row._id %>&sunm=<%= sunm %>&price=200" > 
+    <input type="hidden" name="cancel_return" value="http://localhost:3000/user/cancel/">
+    
+    <!-- Display the payment button. -->
+    <input type="image" name="submit" border="0" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif">
+</form>
+
+
+    <% } %>     
+
+    </td>
+
+
+    </tr>
+    <% } %>
+    
+    </table>
+
+
+</center>
+
+
+<div class="cleaner"></div>
+</div>
+<div class="cleaner"></div>  
+
+<!-- main section ends -->
+
+<% include footer %>

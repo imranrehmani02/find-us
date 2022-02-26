@@ -1,0 +1,61 @@
+<% include adminheader %>
+
+
+<!-- main section starts -->
+<div id="tooplate_main">
+<center>
+<h1>View & Manage Users Here</h1>
+
+<table cellspacing="10">
+<tr>
+<th>RegId</th>
+<th>Name</th>
+<th>Email</th>
+<th>Mobile</th>
+<th>Address</th>
+<th>City</th>
+<th>Gender</th>
+<th>Info</th>
+<th>Status</th>
+<th>Action</th>    
+</tr>   
+
+<% for(let row of result) { %>
+<tr><td colspan="10"><hr></td></tr>    
+<tr>
+<td><%= row._id %></td>
+<td><%= row.name %></td>
+<td><%= row.email %></td>
+<td><%= row.mobile %></td>
+<td><%= row.address %></td>
+<td><%= row.city %></td>
+<td><%= row.gender %></td>
+<td><%= row.info %></td>
+<% if(row.status) { %>
+<td><a href="/admin/manageuserstatus?s=block&regid=<%= row._id %>" >Block</a></td>
+<% } else { %>
+<td><a href="/admin/manageuserstatus?s=unblock&regid=<%= row._id %>" >Unblock</a></td>
+<% } %>
+<td><a href="/admin/manageuserstatus?s=delete&regid=<%= row._id %>" >Delete</a></a></td>    
+</tr>
+<% } %>
+    
+</table>
+
+
+
+</center>
+        <!--
+            <table>
+            <tr>
+            <th></th>    
+            </tr>    
+            </table> Write your content he
+            re -->
+		<div class="cleaner"></div>
+</div>
+<div class="cleaner"></div>  
+
+<!-- main section ends -->
+
+<% include footer %>

@@ -1,0 +1,65 @@
+<% include header %>
+
+<% include gallery %>
+
+
+<!-- main section starts -->
+<div id="tooplate_main">
+    
+    <!-- content section starts -->
+    <div id="tooplate_content">
+    
+        <h3 style="color: orange;"><%= msg %></h3>
+        <h3>Login here</h3>
+
+<form method="post" action="">        
+<table cellspacing="20">
+<tr>
+<td><label>Username(Emailid)</label></td>
+<td><input type="text" name="email" placeholder="Enter Username" value="<%= cunm %>"/></td>    
+</tr>    
+<tr>
+<td><label>Password</label></td>
+<td><input type="password" name="password" placeholder="Enter password" value="<%= cpass %>"/></td>    
+</tr>
+<tr>
+<td><input type="checkbox" name="chk" value="remember"/> Remember me?</td>    
+</tr>
+<tr>
+<td><input type="submit" value="Login" /></td>    
+</tr>        
+</table>
+</form>        
+
+        <!-- Write your content here -->
+
+    </div>
+    <!-- content section ends -->
+
+    <!-- sidebar section starts -->
+    
+        <div id="tooplate_sidebar">
+        
+            <h2>Social Links</h2>
+            
+            <ul class="tooplate_list">
+            <li><a href="#">@Facebook</a></li>
+            <li><a href="#">@Twitter</a></li>
+            <li><a href="#">@Gmail</a></li>
+            <li><a href="#">@Google+</a></li>
+            
+            <div class="cleaner_h60"></div>
+            
+            
+        
+        
+        </div>
+        <!-- sidebar section ends -->
+
+		<div class="cleaner"></div>
+</div>
+<div class="cleaner"></div>  
+
+<!-- main section ends -->
+
+<% include footer %>
